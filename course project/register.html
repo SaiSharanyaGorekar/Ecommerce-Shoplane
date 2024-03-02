@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./register.css">
+</head>
+<body>
+    <span id="demo">
+
+    </span>
+    <form class="form"  id="signup-form" >
+        <p class="title">Register </p>
+        <p class="message">Signup now and get full access to our app. </p>
+            <div class="flex">
+            <label>
+                <input class="input" type="text" id="name" placeholder="" required="">
+                <span>Firstname</span>
+            </label>
+    
+            <label>
+                <input class="input" type="text" placeholder="" required="">
+                <span>Lastname</span>
+            </label>
+        </div>  
+                
+        <label>
+            <input class="input" type="email" id="email" placeholder="" required="">
+            <span>Email</span>
+        </label> 
+            
+        <label>
+            <input class="input" type="password" id="password" placeholder="" required="">
+            <span>Password</span>
+        </label>
+        <label>
+            <input class="input" type="password" placeholder="" id="confirmPassword" required="">
+            <span >Confirm password</span>
+        </label>
+        <button class="submit" type="submit">Submit</button>
+        <p class="signin">Already have an acount ? <a href="./signin.html">Signin</a> </p>
+    </form>
+    <script>
+        document.getElementById('signup-form').addEventListener('submit', function(event) {
+          event.preventDefault();
+    
+          const name = document.getElementById('name').value;
+          const email = document.getElementById('email').value;
+          const password = document.getElementById('password').value;
+          const confirmPassword = document.getElementById('confirmPassword').value;
+
+
+          if (password !== confirmPassword) {
+            alert("Passwords don't match");
+          } else if (name === '' ,password === ''){
+            alert('Please fill in all fields');
+          } else {
+            const userData = {
+              name: name,
+              email: email,
+              password: password,
+            };
+    
+            localStorage.setItem('user', JSON.stringify(userData));
+            alert('Sign up successful! Redirecting to signin'); 
+            window.open("./signin.html", "_parent")
+          }
+        });
+
+
+      </script>
+</body>
+</html>
+<!--     
+          const domain = "@gmail.com";
+
+          if (email.includes(domain)) {
+          window.location.href = "./signin.html";
+        } else {
+         alert("Invalid email. Please enter an email with the domain @gmail.com");
+        } -->
+
+        <!--  let password1=document.getElementById("password")
+
+ console.log(password1);
+
+ let upperCase=/(?=.*?[A-Z])/
+
+ let lowerCase=/(?=.*?[a-z])/
+
+  let digit=/(?=.*?[0-9])/
+
+ let special=/(?=.*?[#?@$%^&*-])/
+
+ let demo =document.getElementById("demo")
+ console.log(demo);
+
+ password1.addEventListener("keyup",()=>{
+     let password1 =document.getElementById("password").value
+
+
+ if(upperCase.test(password1)===false){
+     demo.innerHTML="it should contain one uppercase"
+     // console.log("it should contain one uppercase")
+ }
+ else if(lowerCase.test(password1)===false){
+     demo.innerHTML="it should contain one lowercase"
+      console.log("it should contain one lowercase ")
+ }
+ else if(digit.test(password1)===false){
+     demo.innerHTML="it should contain one digit"
+      console.log("it should contain one digit")
+ }
+ else{
+   demo.innerHTML="password created"
+ }
+ }) -->
